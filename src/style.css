@@ -45,13 +45,7 @@ h4 {
   border-color: fuchsia;
   width: 10rem;
 }
-.capital-cities {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-align: left;
-  font-size: 20px;
-  color: lawngreen;
-}
+
 .weatherComment {
   color: fuchsia;
 }
@@ -83,6 +77,11 @@ h4 {
 .current-temp {
   font-weight: 600;
   font-size: 80px;
+}
+.footer-link {
+  text-align: center;
+  text-decoration: none;
+  color: skyblue;
 }
 
 span {
