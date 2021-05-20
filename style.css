@@ -1,0 +1,97 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+.weatherapp {
+  margin: 0 auto;
+  padding: 40px 40px;
+  background: linear-gradient(#fcfcfc 60%, lightcoral);
+  border-radius: 10px;
+  border: solid;
+  border-color: fuchsia;
+}
+h1 {
+  display: block;
+  text-align: left;
+  background: lightcoral;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+h2 {
+  margin-top: 20px;
+  color: rgb(32, 226, 252);
+  font-size: 80px;
+}
+h3 {
+  color: rgb(32, 226, 252);
+}
+p,
+h5 {
+  text-align: center;
+}
+p {
+  color: orange;
+  font-size: 20px;
+}
+h5 {
+  color: greenyellow;
+  font-weight: bold;
+}
+h4 {
+  color: indigo;
+}
+
+.card {
+  border-color: fuchsia;
+  width: 10rem;
+}
+.capital-cities {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 20px;
+  color: lawngreen;
+}
+.weatherComment {
+  color: fuchsia;
+}
+.search-button {
+  color: white;
+  padding: 8px;
+  font-size: 20px;
+}
+.current-button {
+  color: white;
+  padding: 8px;
+  font-size: 20px;
+  background: greenyellow;
+}
+.degrees-button {
+  background: indigo;
+  border: indigo;
+  transition: 150ms all;
+}
+.degrees-button:hover {
+  background: rgb(177, 89, 240);
+  border: rgb(177, 89, 240);
+}
+.description {
+  font-size: 20px;
+  text-align: left;
+  color: rgb(32, 226, 252);
+}
+.current-temp {
+  font-weight: 600;
+  font-size: 80px;
+}
+
+span {
+  font-size: 40px;
+}
+.alternative-temp {
+  color: indigo;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
