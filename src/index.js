@@ -11,10 +11,15 @@ let days = [
 ];
 let currentDays = days[now.getDay()];
 let currentHour = now.getHours();
-let currentMinutes = now.getMinutes();
+if (currentHour < 10) {
+  currentHour = `0${currentHour}`;
+}
 
-currentDay.innerHTML = `${currentDays}`;
-currentTime.innerHTML = `${currentHour}:${currentMinutes}`;
+let currentMinutes = now.getMinutes();
+if (currentMinutes < 10) {
+  minutes = `0${currentMinutes}`;
+}
+currentDayAndTime.innerHTML = `${currentDays} ${currentHour}:${currentMinutes}`;
 
 function showCity(event) {
   event.preventDefault();
@@ -43,6 +48,8 @@ function showTemperature(response) {
   temperatureElement.innerHTML = `${temperature}˚C`;
   let cityInput = document.querySelector("#currentCity");
   cityInput.innerHTML = `${response.data.name}`;
+  let descriptionElement = document.querySelector("#weatherDescription");
+  descriptionElement.innerHTML = response.data.weather[0].description;
 }
 
 function revealPosition(position) {

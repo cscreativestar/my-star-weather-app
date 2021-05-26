@@ -2,6 +2,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 .weatherapp {
+  max-width: 1000px;
   margin: 0 auto;
   padding: 40px 40px;
   background: linear-gradient(#fcfcfc 60%, lightcoral);
@@ -15,13 +16,14 @@ h1 {
   background: lightcoral;
   color: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
 }
 h2 {
   margin-top: 20px;
   color: rgb(32, 226, 252);
-  font-size: 80px;
+  font-size: 50px;
 }
+
 h3 {
   color: rgb(32, 226, 252);
 }
@@ -41,6 +43,9 @@ h4 {
   color: indigo;
 }
 
+.city {
+  font-weight: 500;
+}
 .card {
   border-color: fuchsia;
   width: 10rem;
@@ -69,13 +74,15 @@ h4 {
   background: rgb(177, 89, 240);
   border: rgb(177, 89, 240);
 }
-.description {
+.currentWeather {
+  text-transform: capitalize;
   font-size: 20px;
   text-align: left;
   color: rgb(32, 226, 252);
 }
 .current-temp {
-  font-weight: 600;
+  line-height: 1;
+  font-weight: 500;
   font-size: 80px;
 }
 .footer-link {

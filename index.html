@@ -55,12 +55,11 @@
       </form>
       <div class="container">
         <div class="row">
+          <h2 class="city" id="currentCity"></h2>
           <div class="row temperature align-items-end">
             <div class="col-sm-6">
-              <h2 id="currentCity">Nottingham</h2>
-              <h3 id="currentDay">Friday</h3>
-              <h3 id="currentTime">13:15</h3>
-              <h5 class="description">Sunny spells, low wind</h5>
+              <h3 id="currentDayAndTime"></h3>
+              <h3 class="currentWeather" id="weatherDescription"></h3>
               <h2 class="current-temp" id="temperature">15˚C 🌤</h2>
               <div class="btn-group" role="group" aria-label="Basic example">
                 <button
@@ -180,8 +179,9 @@
         class="footer-link"
         href="https://github.com/cscreativestar/my-star-weather-app"
         target="_blank"
-        >Open-source code</a
-      >, by Carly Swift
+        >Open-source code,</a
+      >
+      by Carly Swift
     </div>
 
     <script src="src/index.js"></script>
