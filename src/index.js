@@ -17,7 +17,7 @@ if (currentHour < 10) {
 
 let currentMinutes = now.getMinutes();
 if (currentMinutes < 10) {
-  minutes = `0${currentMinutes}`;
+  minutes = `${currentMinutes}`;
 }
 currentDayAndTime.innerHTML = `${currentDays} ${currentHour}:${currentMinutes}`;
 
@@ -50,6 +50,10 @@ function showTemperature(response) {
   cityInput.innerHTML = `${response.data.name}`;
   let descriptionElement = document.querySelector("#weatherDescription");
   descriptionElement.innerHTML = response.data.weather[0].description;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function revealPosition(position) {
