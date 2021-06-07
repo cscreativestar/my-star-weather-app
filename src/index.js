@@ -17,7 +17,7 @@ if (currentHour < 10) {
 
 let currentMinutes = now.getMinutes();
 if (currentMinutes < 10) {
-  minutes = `${currentMinutes}`;
+  minutes = `0${currentMinutes}`;
 }
 currentDayAndTime.innerHTML = `${currentDays} ${currentHour}:${currentMinutes}`;
 
