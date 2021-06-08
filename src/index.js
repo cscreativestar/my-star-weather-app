@@ -35,6 +35,7 @@ function searchCity(city) {
 let enterCityForm = document.querySelector("#city-form");
 enterCityForm.addEventListener("submit", showCity);
 function showTemperature(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${temperature}˚C`;
@@ -42,11 +43,13 @@ function showTemperature(response) {
   cityInput.innerHTML = `${response.data.name}`;
   let descriptionElement = document.querySelector("#weatherDescription");
   descriptionElement.innerHTML = response.data.weather[0].description;
+
   let iconElement = document.querySelector("#iconElement");
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  celsiusTemperature = response.data.main.temp;
 }
 function revealPosition(position) {
   let latitude = position.coords.latitude;
@@ -58,21 +61,17 @@ function revealPosition(position) {
 }
 navigator.geolocation.getCurrentPosition(revealPosition);
 
-celsiusTemperature = response.data.main.temp;
-
 function displayFahrenheitTemperature() {
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  let temperatureElement = document.querySelector("temperature");
+  let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
-
 function displayCelsiusTemperature() {
-  let temperatureElement = document.querySelector("temperature");
+  let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-
+let celsiusTemperature = null;
 let fahrenheitButton = document.querySelector("#fahrenheit-link-button");
 fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);
-
 let celsiusButton = document.querySelector("#celsius-link-button");
 celsiusButton.addEventListener("click", displayCelsiusTemperature);
