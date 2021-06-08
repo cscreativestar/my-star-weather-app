@@ -25,6 +25,7 @@ function showCity(event) {
   cityInput.innerHTML = `${enterCityInput.value}`;
   searchCity(enterCityInput.value);
 }
+
 function searchCity(city) {
   let apiKey = "f7da78bd04741d407fc9d96cf87b54b8";
   let units = "metric";
@@ -57,11 +58,21 @@ function revealPosition(position) {
 }
 navigator.geolocation.getCurrentPosition(revealPosition);
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault;
-  let fahrenheitTemperature = (15 * 9) / 5 + 32;
+celsiusTemperature = response.data.main.temp;
+
+function displayFahrenheitTemperature() {
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("temperature");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
+
+function displayCelsiusTemperature() {
+  let temperatureElement = document.querySelector("temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
 let fahrenheitButton = document.querySelector("#fahrenheit-link-button");
 fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusButton = document.querySelector("#celsius-link-button");
+celsiusButton.addEventListener("click", displayCelsiusTemperature);
