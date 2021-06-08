@@ -56,8 +56,12 @@ function revealPosition(position) {
   axios.get(apiUrl).then(showTemperature);
 }
 navigator.geolocation.getCurrentPosition(revealPosition);
-function displayFahrenheitTemperature() {
-  alert("linked Clicked");
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault;
+  let fahrenheitTemperature = (15 * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 let fahrenheitButton = document.querySelector("#fahrenheit-link-button");
 fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);

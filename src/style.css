@@ -84,7 +84,13 @@ h4 {
   font-weight: 500;
   font-size: 80px;
 }
+.fahrenheit-link {
+  color: white;
+  text-decoration: none;
+}
 .footer-link {
+  display: block;
+  margin: 10px auto;
   text-align: center;
   text-decoration: none;
   color: skyblue;
@@ -95,8 +101,4 @@ span {
 }
 .alternative-temp {
   color: indigo;
-}
-a {
-  color: white;
-  text-decoration: none;
 }
