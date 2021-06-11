@@ -42,6 +42,8 @@ function showTemperature(response) {
   cityInput.innerHTML = `${response.data.name}`;
   let descriptionElement = document.querySelector("#weatherDescription");
   descriptionElement.innerHTML = response.data.weather[0].description;
+  let windElement = document.querySelector("windDescription");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 
   let iconElement = document.querySelector("#iconElement");
   iconElement.setAttribute(
