@@ -17,7 +17,7 @@ let currentMinutes = now.getMinutes();
 if (currentMinutes < 10) {
   currentMinutes = `0${currentMinutes}`;
 }
-currentDayAndTime.innerHTML = `${currentDays} ${currentHour}:${currentMinutes}`;
+currentDayAndTime.innerHTML = `Last updated: ${currentDays} ${currentHour}:${currentMinutes}`;
 function showCity(event) {
   event.preventDefault();
   let enterCityInput = document.querySelector("#city-input");
