@@ -35,6 +35,7 @@ function searchCity(city) {
 let enterCityForm = document.querySelector("#city-form");
 enterCityForm.addEventListener("submit", showCity);
 function showTemperature(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${temperature}˚C`;
@@ -42,8 +43,9 @@ function showTemperature(response) {
   cityInput.innerHTML = `${response.data.name}`;
   let descriptionElement = document.querySelector("#weatherDescription");
   descriptionElement.innerHTML = response.data.weather[0].description;
-  let windElement = document.querySelector("windDescription");
-  windElement.innerHTML = Math.round(response.data.wind.speed);
+  let windSpeed = response.data.wind.speed * 0.6214;
+  let windElement = document.querySelector("#windDescription");
+  windElement.innerHTML = `Wind speed: ${Math.round(windSpeed)} mph`;
 
   let iconElement = document.querySelector("#iconElement");
   iconElement.setAttribute(
@@ -52,6 +54,7 @@ function showTemperature(response) {
   );
   celsiusTemperature = response.data.main.temp;
 }
+
 function revealPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;

@@ -79,7 +79,12 @@ h4 {
   text-align: left;
   color: rgb(32, 226, 252);
 }
-
+.windWeather {
+  text-transform: capitalize;
+  font-size: 20px;
+  text-align: left;
+  color: rgb(32, 226, 252);
+}
 .current-temp {
   line-height: 1;
   font-weight: 500;
