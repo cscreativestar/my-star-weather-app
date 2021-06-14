@@ -18,6 +18,9 @@ if (currentMinutes < 10) {
   currentMinutes = `0${currentMinutes}`;
 }
 currentDayAndTime.innerHTML = `Last updated: ${currentDays} ${currentHour}:${currentMinutes}`;
+
+//entering city name
+
 function showCity(event) {
   event.preventDefault();
   let enterCityInput = document.querySelector("#city-input");
@@ -26,14 +29,28 @@ function showCity(event) {
   searchCity(enterCityInput.value);
 }
 
-function displayHourlyForecast() {
+// showing Hourly Forecast
+
+function formatHour(timestamp) {
+  let now = new Date(timestamp * 1000);
+  forecastHour = now.getHours();
+  if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
+    let currentMinutes = now.getMinutes();
+    if (currentMinutes < 10) {
+      currentMinutes = `0${currentMinutes}`;
+    }
+  }
+}
+function displayHourlyForecast(response) {
   let forecastHourElement = document.querySelector("#hourly-time-forecast");
 
   let hourForecastHTML = `<div class="row">`;
-  let hours;
-  hourForecastHTML =
-    hourForecastHTML +
-    `<div class="col-sm-6">
+  let hourlyForecast = response.data.hourly;
+  hourlyForecast.forEach(function (forecastDay, index) {
+    hourForecastHTML =
+      hourForecastHTML +
+      `<div class="col-sm-6">
                   <h4 class="hourly-time-forecast" id="hourly-time-forecast">
                     17:00 - 20:00 <br />
                     Cloudy
@@ -57,9 +74,12 @@ function displayHourlyForecast() {
                   </h4>
                 </div>
               `;
+  });
   hourForecastHTML = hourForecastHTML + `</div>`;
   forecastHourElement.innerHTML = hourForecastHTML;
 }
+
+// showing 6 day forecast
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -119,6 +139,8 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+//showing current/local temperature with location name, including icon, description and wind speed
+
 function searchCity(city) {
   let apiKey = "f7da78bd04741d407fc9d96cf87b54b8";
   let units = "metric";
@@ -127,6 +149,7 @@ function searchCity(city) {
 }
 let enterCityForm = document.querySelector("#city-form");
 enterCityForm.addEventListener("submit", showCity);
+
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
@@ -146,7 +169,10 @@ function showTemperature(response) {
   );
   celsiusTemperature = response.data.main.temp;
   getForecast(response.data.coord);
+  displayHourlyForecast(response.data.hourly);
 }
+
+//revealing current position
 
 function revealPosition(position) {
   let latitude = position.coords.latitude;
@@ -157,6 +183,8 @@ function revealPosition(position) {
   axios.get(apiUrl).then(showTemperature);
 }
 navigator.geolocation.getCurrentPosition(revealPosition);
+
+//converting Celsius and Fahrenheit
 
 function displayFahrenheitTemperature() {
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
@@ -172,5 +200,3 @@ let fahrenheitButton = document.querySelector("#fahrenheit-link-button");
 fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);
 let celsiusButton = document.querySelector("#celsius-link-button");
 celsiusButton.addEventListener("click", displayCelsiusTemperature);
-
-displayHourlyForecast();
