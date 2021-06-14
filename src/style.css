@@ -31,6 +31,7 @@ h3 {
 h5 {
   text-align: center;
   color: greenyellow;
+  font-size: 1.2rem;
 }
 
 h4 {
@@ -41,8 +42,9 @@ h4 {
   font-weight: 500;
 }
 .card {
+  display: block;
   border-color: fuchsia;
-  width: 10rem;
+  width: 9.5rem;
 }
 
 .weatherComment {
