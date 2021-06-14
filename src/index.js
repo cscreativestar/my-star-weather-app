@@ -26,6 +26,15 @@ function showCity(event) {
   searchCity(enterCityInput.value);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecastHTML =
+    forecastHTML +
+    
+
+
 function searchCity(city) {
   let apiKey = "f7da78bd04741d407fc9d96cf87b54b8";
   let units = "metric";
@@ -43,7 +52,7 @@ function showTemperature(response) {
   cityInput.innerHTML = `${response.data.name}`;
   let descriptionElement = document.querySelector("#weatherDescription");
   descriptionElement.innerHTML = response.data.weather[0].description;
-  let windSpeed = response.data.wind.speed * 0.6214;
+  let windSpeed = response.data.wind.speed * 2.237;
   let windElement = document.querySelector("#windDescription");
   windElement.innerHTML = `Wind speed: ${Math.round(windSpeed)} mph`;
 

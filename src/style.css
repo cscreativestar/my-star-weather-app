@@ -27,17 +27,12 @@ h2 {
 h3 {
   color: rgb(32, 226, 252);
 }
-p,
+
 h5 {
   text-align: center;
-}
-p {
-  color: orange;
-  font-size: 20px;
-}
-h5 {
   color: greenyellow;
 }
+
 h4 {
   color: indigo;
 }
@@ -101,8 +96,17 @@ h4 {
   text-decoration: none;
   color: skyblue;
 }
+
+.weather-forecast {
+  text-align: center;
+}
 .weather-forecast-temp-max {
   font-weight: bolder;
+  color: orange;
+}
+
+.weather-forecast-temp-min {
+  color: orange;
 }
 .alternative-temp {
   color: indigo;
