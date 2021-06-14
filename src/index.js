@@ -30,10 +30,35 @@ function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  forecastHTML =
-    forecastHTML +
-    
+  let days = [
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">${day}</h5>
+              <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" />
+              <span class="weather-forecast-temp-max">10˚C</span>
+              <span class="weather-forecast-temp-min">6˚C</span>
+            </div>
+          </div>
+        </div>
+        `;
+  });
 
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
 
 function searchCity(city) {
   let apiKey = "f7da78bd04741d407fc9d96cf87b54b8";
