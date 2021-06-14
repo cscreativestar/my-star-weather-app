@@ -26,6 +26,41 @@ function showCity(event) {
   searchCity(enterCityInput.value);
 }
 
+function displayHourlyForecast() {
+  let forecastHourElement = document.querySelector("#hourly-time-forecast");
+
+  let hourForecastHTML = `<div class="row">`;
+  let hours;
+  hourForecastHTML =
+    hourForecastHTML +
+    `<div class="col-sm-6">
+                  <h4 class="hourly-time-forecast" id="hourly-time-forecast">
+                    17:00 - 20:00 <br />
+                    Cloudy
+                    <br />
+                    <span class="hourly-forcast-temp-Celcius">12˚C </span>
+                    <span class="hourly-forcast-temp-Fehrenheit">12˚F </span>
+                    <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="40" />
+                  </h4>
+                </div>
+                <div class="col-sm-6">
+                  <h4
+                    class="hourly-time-forecast-next"
+                    id="hourly-time-forecast-next"
+                  >
+                    20:00 - 23:00 <br />
+                    Cloudy
+                    <br />
+                    <span class="hourly-forcast-temp-Celcius">12˚C </span>
+                    <span class="hourly-forcast-temp-Fehrenheit">12˚F </span>
+                    <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="40" />
+                  </h4>
+                </div>
+              `;
+  hourForecastHTML = hourForecastHTML + `</div>`;
+  forecastHourElement.innerHTML = hourForecastHTML;
+}
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -79,7 +114,7 @@ function displayForecast(response) {
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "f7da78bd04741d407fc9d96cf87b54b8";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
@@ -137,3 +172,5 @@ let fahrenheitButton = document.querySelector("#fahrenheit-link-button");
 fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);
 let celsiusButton = document.querySelector("#celsius-link-button");
 celsiusButton.addEventListener("click", displayCelsiusTemperature);
+
+displayHourlyForecast();
