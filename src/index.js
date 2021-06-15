@@ -32,32 +32,28 @@ function showCity(event) {
 // showing Hourly Forecast
 
 function formatHour(timestamp) {
-  let now = new Date(timestamp * 1000);
-  forecastHour = now.getHours();
-  if (currentHour < 10) {
-    currentHour = `0${currentHour}`;
-    let currentMinutes = now.getMinutes();
-    if (currentMinutes < 10) {
-      currentMinutes = `0${currentMinutes}`;
-    }
-  }
-}
-function displayHourlyForecast(response) {
-  let forecastHourElement = document.querySelector("#hourly-time-forecast");
+  let date = new Date(timestamp * 1000);
+  let hour = date.getHours();
 
+  return hour;
+}
+function displayHourlyForecast(hourlyForecast) {
+  let forecastHourElement = document.querySelector("#hourly-time-forecast");
   let hourForecastHTML = `<div class="row">`;
-  let hourlyForecast = response.data.hourly;
   hourlyForecast.forEach(function (forecastDay, index) {
-    hourForecastHTML =
-      hourForecastHTML +
-      `<div class="col-sm-6">
+    if (index < 1) {
+      hourForecastHTML =
+        hourForecastHTML +
+        `<div class="col-sm-6">
                   <h4 class="hourly-time-forecast" id="hourly-time-forecast">
-                    17:00 - 20:00 <br />
+                    ${formatHour(forecastDay.dt)}<br />
                     Cloudy
                     <br />
                     <span class="hourly-forcast-temp-Celcius">12˚C </span>
                     <span class="hourly-forcast-temp-Fehrenheit">12˚F </span>
-                    <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="40" />
+                    <img src="http://openweathermap.org/img/wn/${
+                      forecastDay.weather[0].icon
+                    }@2x.png" alt="" width="40" />
                   </h4>
                 </div>
                 <div class="col-sm-6">
@@ -65,15 +61,18 @@ function displayHourlyForecast(response) {
                     class="hourly-time-forecast-next"
                     id="hourly-time-forecast-next"
                   >
-                    20:00 - 23:00 <br />
+                    ${currentHour}:${currentMinutes} <br />
                     Cloudy
                     <br />
                     <span class="hourly-forcast-temp-Celcius">12˚C </span>
                     <span class="hourly-forcast-temp-Fehrenheit">12˚F </span>
-                    <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="40" />
+                    <img src="http://openweathermap.org/img/wn/${
+                      forecastDay.weather[0].icon
+                    }@2x.png" alt="" width="40" />
                   </h4>
                 </div>
               `;
+    }
   });
   hourForecastHTML = hourForecastHTML + `</div>`;
   forecastHourElement.innerHTML = hourForecastHTML;
@@ -98,10 +97,9 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
+  console.log(response.data.hourly);
   let forecast = response.data.daily;
-
   let forecastElement = document.querySelector("#forecast");
-
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
@@ -126,13 +124,12 @@ function displayForecast(response) {
         `;
     }
   });
-
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+  displayHourlyForecast(response.data.hourly);
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "f7da78bd04741d407fc9d96cf87b54b8";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
@@ -169,7 +166,6 @@ function showTemperature(response) {
   );
   celsiusTemperature = response.data.main.temp;
   getForecast(response.data.coord);
-  displayHourlyForecast(response.data.hourly);
 }
 
 //revealing current position
