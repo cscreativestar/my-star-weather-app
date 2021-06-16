@@ -180,17 +180,35 @@ navigator.geolocation.getCurrentPosition(revealPosition);
 
 //converting Celsius and Fahrenheit
 
-function displayFahrenheitTemperature() {
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}˚F`;
-}
-function displayCelsiusTemperature() {
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}˚C`;
-}
-let celsiusTemperature = null;
-let fahrenheitButton = document.querySelector("#fahrenheit-link-button");
-fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);
-let celsiusButton = document.querySelector("#celsius-link-button");
-celsiusButton.addEventListener("click", displayCelsiusTemperature);
+//function displayFahrenheitTemperature() {
+//let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+//let temperatureElement = document.querySelector("#temperature");
+//temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}˚F`;
+//}
+//function displayCelsiusTemperature() {
+//let temperatureElement = document.querySelector("#temperature");
+//temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}˚C`;
+//}
+//let celsiusTemperature = null;
+//let fahrenheitButton = document.querySelector("#fahrenheit-link-button");
+//fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);
+//let celsiusButton = document.querySelector("#celsius-link-button");
+//celsiusButton.addEventListener("click", displayCelsiusTemperature);
+
+//˚C and ˚F converting button:
+//<div class="btn-group" role="group" aria-label="Basic example">
+//<button
+//type="button"
+//class="btn btn-primary degrees-button shadow fahrenheit-link"
+//id="fahrenheit-link-button"
+//>
+// ˚F
+//</button>
+// <button
+// type="button"
+// class="btn btn-primary degrees-button shadow"
+//id="celsius-link-button"
+//>
+//˚C
+//</button>
+//</div>
