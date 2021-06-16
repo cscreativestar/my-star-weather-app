@@ -34,14 +34,37 @@ function showCity(event) {
 function formatHour(timestamp) {
   let date = new Date(timestamp * 1000);
   let hour = date.getHours();
+  if (hour > 10) {
+    hour = `${hour}:00`;
+  } else {
+    `0${hour}:00`;
+  }
 
   return hour;
 }
+
+//function displayForecaseFahrenheitTemperature() {
+//let forecastFahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+//let forecasrTemperatureElement = document.querySelector("#temperature");
+//forecastTemperatureElement.innerHTML = `${Math.round(forecastFahrenheitTemperature)}˚F`;
+//}
+
+//function displayForecastCelsiusTemperature() {
+//let forecastTemperatureElement = document.querySelector("#temperature");
+//forecastTemperatureElement.innerHTML = `${Math.round(forecastCelsiusTemperature)}˚C`;
+//}
+
+//let celsiusTemperature = null;
+//let fahrenheitButton = document.querySelector("#fahrenheit-link-button");
+//fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);
+//let celsiusButton = document.querySelector("#celsius-link-button");
+//celsiusButton.addEventListener("click", displayCelsiusTemperature);
+
 function displayHourlyForecast(hourlyForecast) {
   let forecastHourElement = document.querySelector("#hourly-time-forecast");
   let hourForecastHTML = `<div class="row">`;
   hourlyForecast.forEach(function (forecastDay, index) {
-    if (index < 1) {
+    if (index < 2) {
       hourForecastHTML =
         hourForecastHTML +
         `<div class="col-sm-6">
@@ -49,28 +72,14 @@ function displayHourlyForecast(hourlyForecast) {
                     ${formatHour(forecastDay.dt)}<br />
                     Cloudy
                     <br />
-                    <span class="hourly-forcast-temp-Celcius">12˚C </span>
-                    <span class="hourly-forcast-temp-Fehrenheit">12˚F </span>
+                    <span class="hourly-forcast-temp-Celcius" id="hourly-forcast-temp-Celcius" >˚C </span>
+                    <span class="hourly-forcast-temp-Fehrenheit" id="hourly-forcast-temp-Fehrenheit">12˚F </span>
                     <img src="http://openweathermap.org/img/wn/${
                       forecastDay.weather[0].icon
                     }@2x.png" alt="" width="40" />
                   </h4>
                 </div>
-                <div class="col-sm-6">
-                  <h4
-                    class="hourly-time-forecast-next"
-                    id="hourly-time-forecast-next"
-                  >
-                    ${currentHour}:${currentMinutes} <br />
-                    Cloudy
-                    <br />
-                    <span class="hourly-forcast-temp-Celcius">12˚C </span>
-                    <span class="hourly-forcast-temp-Fehrenheit">12˚F </span>
-                    <img src="http://openweathermap.org/img/wn/${
-                      forecastDay.weather[0].icon
-                    }@2x.png" alt="" width="40" />
-                  </h4>
-                </div>
+                
               `;
     }
   });
