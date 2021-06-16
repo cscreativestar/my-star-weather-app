@@ -143,6 +143,7 @@ let enterCityForm = document.querySelector("#city-form");
 enterCityForm.addEventListener("submit", showCity);
 
 function showTemperature(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = `${temperature}˚C`;
@@ -150,6 +151,9 @@ function showTemperature(response) {
   cityInput.innerHTML = `${response.data.name}`;
   let descriptionElement = document.querySelector("#weatherDescription");
   descriptionElement.innerHTML = response.data.weather[0].description;
+  let humidity = Math.round(response.data.main.humidity);
+  let humidityElement = document.querySelector("#currentHumidity");
+  humidityElement.innerHTML = `Humidity: ${humidity}%`;
   let windSpeed = response.data.wind.speed * 2.237;
   let windElement = document.querySelector("#windDescription");
   windElement.innerHTML = `Wind speed: ${Math.round(windSpeed)} mph`;
