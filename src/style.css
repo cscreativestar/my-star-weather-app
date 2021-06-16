@@ -35,6 +35,7 @@ h5 {
 }
 
 h4 {
+  text-transform: capitalize;
   color: indigo;
 }
 .currentDayAndTime {
@@ -102,7 +103,18 @@ h4 {
   text-decoration: none;
   color: skyblue;
 }
+.hourly-time-forecast {
+  color: greenyellow;
+}
 
+.hourly-time-description {
+  color: rgb(32, 226, 252);
+}
+
+.hourly-forecast-temp {
+  color: orange;
+  font-size: 26px;
+}
 .weather-forecast {
   text-align: center;
 }

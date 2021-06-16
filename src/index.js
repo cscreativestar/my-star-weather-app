@@ -43,23 +43,6 @@ function formatHour(timestamp) {
   return hour;
 }
 
-//function displayForecaseFahrenheitTemperature() {
-//let forecastFahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-//let forecasrTemperatureElement = document.querySelector("#temperature");
-//forecastTemperatureElement.innerHTML = `${Math.round(forecastFahrenheitTemperature)}˚F`;
-//}
-
-//function displayForecastCelsiusTemperature() {
-//let forecastTemperatureElement = document.querySelector("#temperature");
-//forecastTemperatureElement.innerHTML = `${Math.round(forecastCelsiusTemperature)}˚C`;
-//}
-
-//let celsiusTemperature = null;
-//let fahrenheitButton = document.querySelector("#fahrenheit-link-button");
-//fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);
-//let celsiusButton = document.querySelector("#celsius-link-button");
-//celsiusButton.addEventListener("click", displayCelsiusTemperature);
-
 function displayHourlyForecast(hourlyForecast) {
   let forecastHourElement = document.querySelector("#hourly-time-forecast");
   let hourForecastHTML = `<div class="row">`;
@@ -70,14 +53,17 @@ function displayHourlyForecast(hourlyForecast) {
         `<div class="col-sm-6">
                   <h4 class="hourly-time-forecast" id="hourly-time-forecast">
                     ${formatHour(forecastDay.dt)}<br />
-                    Cloudy
-                    <br />
-                    <span class="hourly-forcast-temp-Celcius" id="hourly-forcast-temp-Celcius" >˚C </span>
-                    <span class="hourly-forcast-temp-Fehrenheit" id="hourly-forcast-temp-Fehrenheit">12˚F </span>
-                    <img src="http://openweathermap.org/img/wn/${
-                      forecastDay.weather[0].icon
-                    }@2x.png" alt="" width="40" />
-                  </h4>
+                    <h4 class="hourly-time-description"> ${
+                      forecastDay.weather[0].description
+                    }</h4>
+                    <div class="align-items-center">
+                    <h4 class="hourly-forecast-temp" id="hourly-forecast-temp"> ${Math.round(
+                      forecastDay.temp
+                    )}˚C <img src="http://openweathermap.org/img/wn/${
+          forecastDay.weather[0].icon
+        }@2x.png" alt="" width="50" /></h4>
+                    
+                  </div>
                 </div>
                 
               `;
@@ -176,6 +162,8 @@ function showTemperature(response) {
   celsiusTemperature = response.data.main.temp;
   getForecast(response.data.coord);
 }
+
+function displayWeatherComment() {}
 
 //revealing current position
 
