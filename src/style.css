@@ -17,6 +17,7 @@ h1 {
   color: white;
   border-radius: 10px;
   padding: 10px;
+
   border: solid 2px;
   border-color: fuchsia;
 }
@@ -50,7 +51,7 @@ h4 {
 .card {
   display: block;
   border-color: fuchsia;
-  width: 9.5rem;
+  width: 9.3rem;
   background: white;
   transition: 150ms all;
 }
