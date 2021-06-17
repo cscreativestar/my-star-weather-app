@@ -13,11 +13,11 @@ body {
 h1 {
   display: block;
   text-align: left;
-  background: lightcoral;
+  background: linear-gradient(to right, lightcoral 45%, white);
   color: white;
   border-radius: 10px;
   padding: 10px;
-  border: solid 3px;
+  border: solid 2px;
   border-color: fuchsia;
 }
 h2 {
@@ -51,6 +51,11 @@ h4 {
   display: block;
   border-color: fuchsia;
   width: 9.5rem;
+  background: white;
+  transition: 150ms all;
+}
+.card:hover {
+  background: linear-gradient(rgb(32, 226, 252), white, rgb(32, 226, 252));
 }
 
 .weatherComment {
@@ -68,15 +73,7 @@ h4 {
   font-size: 20px;
   background: greenyellow;
 }
-.degrees-button {
-  background: indigo;
-  border: indigo;
-  transition: 150ms all;
-}
-.degrees-button:hover {
-  background: rgb(177, 89, 240);
-  border: rgb(177, 89, 240);
-}
+
 .currentWeather {
   text-transform: capitalize;
   font-size: 20px;
