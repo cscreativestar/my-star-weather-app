@@ -17,10 +17,12 @@ h1 {
   color: white;
   border-radius: 10px;
   padding: 10px;
+  border: solid 3px;
+  border-color: fuchsia;
 }
 h2 {
   margin-top: 20px;
-  color: rgb(32, 226, 252);
+  color: fuchsia;
   font-size: 50px;
 }
 
@@ -53,6 +55,7 @@ h4 {
 
 .weatherComment {
   color: fuchsia;
+  font-size: 30px;
 }
 .search-button {
   color: white;

@@ -164,8 +164,6 @@ function showTemperature(response) {
   getForecast(response.data.coord);
 }
 
-function displayWeatherComment() {}
-
 //revealing current position
 
 function revealPosition(position) {
