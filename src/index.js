@@ -47,7 +47,7 @@ function displayHourlyForecast(hourlyForecast) {
   let forecastHourElement = document.querySelector("#hourly-time-forecast");
   let hourForecastHTML = `<div class="row">`;
   hourlyForecast.forEach(function (forecastDay, index) {
-    if (index < 2) {
+    if (index > 0 && index < 3) {
       hourForecastHTML =
         hourForecastHTML +
         `<div class="col-sm-6">

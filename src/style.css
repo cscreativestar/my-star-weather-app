@@ -116,6 +116,7 @@ h4 {
 
 .hourly-time-description {
   color: rgb(32, 226, 252);
+  font-size: 20px;
 }
 
 .hourly-forecast-temp {
